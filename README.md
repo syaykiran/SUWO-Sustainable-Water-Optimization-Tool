@@ -12,9 +12,14 @@
 * Simulation of reservoir operations, irrigation management, hydropower generation, and ecological flow constraints.
 * Evaluation of management, climate, and environmental scenarios.
 * Open-source code in Python for transparency and collaboration.
+  
+![FRAMEWORK3@3x](https://github.com/user-attachments/assets/bfbffaab-b979-4b10-8df5-6543344009ae)
+
+![STUCTURE@3x](https://github.com/user-attachments/assets/6cc441d6-04db-4134-afee-0d768c1da05f)
 
 
 ##   Installation
+
 
 Clone the repository:
 
