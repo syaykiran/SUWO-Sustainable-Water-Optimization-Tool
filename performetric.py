@@ -109,7 +109,7 @@ scenario_code_2, sce_label_2 = "SC05", "NSGA3"  # "EXP_NSGA3", "NSGA3"
 
 # F1 = get_data("EXP_F1") # CALISTI
 # F2 = get_data("EXP_F2") # CALISTI
-n_evals = get_data("EXP_n_evals").flatten() # CALISTI
+# n_evals = get_data("EXP_n_evals").flatten() # CALISTI
 
 
 
@@ -120,16 +120,16 @@ F1 = get_data("EXP_SIM1_RES_F_1")
 X2 = get_data("EXP_NSGA3_RES_X_1")
 F2 = get_data("EXP_NSGA3_RES_F_1")
 
-# XA = get_data("EXP_RES_X_NS2-NATA_1")
-# FA = get_data("EXP_RES_F_NS2-NATA_1")
-# XC = get_data("EXP_RES_X_NS2-NATC_1")
-# FC = get_data("EXP_RES_F_NS2-NATC_1")
-# XD = get_data("EXP_RES_X_NS2-NATD_1")
-# FD = get_data("EXP_RES_F_NS2-NATD_1")
-# XE = get_data("EXP_RES_X_NS2-NATE_1")
-# FE = get_data("EXP_RES_F_NS2-NATE_1")
-# XF = get_data("EXP_RES_X_NS2-NATF_1")
-# FF = get_data("EXP_RES_F_NS2-NATF_1")
+XA = get_data("EXP_RES_X_NS2-NATA_1")
+FA = get_data("EXP_RES_F_NS2-NATA_1")
+XC = get_data("EXP_RES_X_NS2-NATC_1")
+FC = get_data("EXP_RES_F_NS2-NATC_1")
+XD = get_data("EXP_RES_X_NS2-NATD_1")
+FD = get_data("EXP_RES_F_NS2-NATD_1")
+XE = get_data("EXP_RES_X_NS2-NATE_1")
+FE = get_data("EXP_RES_F_NS2-NATE_1")
+XF = get_data("EXP_RES_X_NS2-NATF_1")
+FF = get_data("EXP_RES_F_NS2-NATF_1")
 
 ## Performance indicators
 # ndsgr1, upm1, spm1, mct1 = calc_performance_indicators(hist_F1, n_pop, F1, tot_time_1, n_evals)
@@ -149,9 +149,14 @@ F2 = get_data("EXP_NSGA3_RES_F_1")
 # plot_hypervolume_compare(Hypervolume, n_evals, sce_label_1, F1, hist_F1, sce_label_2, F2, hist_F2)
 # plot_hypervolume_compare_inputhv(n_evals, "NSGA-II", "NSGA-III", normalize=False)# hazır hv varsa kullan
 
-# plot_inverted_generational_distance_plus_compare(IGDPlus, n_evals, F1, hist_F1, F2, hist_F2)
+
+# plot_inverted_generational_distance_plus_compare(IGDPlus, n_evals, F1, hist_F_averaged, F2, hist_F2_averaged)
 # plot_inverted_generational_distance_plus_compare_inputigdplus(n_evals, "NSGA-II", "NSGA-III")
+
 # plot_hypervolume_compare_inputhv_range(n_evals, "NSGA-II", "NSGA-III", normalize=False)
+# plot_hypervolume_compare_inputhv_range_turkish(n_evals, "NSGA-II", "NSGA-III", normalize=False)
+
+
 # plot_inverted_generational_distance_compare(IGD, n_evals, F1, hist_F1, F2, hist_F2)
 # plot_igdplus_compare_inputigdplus_range(n_evals, "NSGA-II", "NSGA-III", normalize=False)
 
@@ -161,14 +166,14 @@ F2 = get_data("EXP_NSGA3_RES_F_1")
 # plot_inverted_generational_distance_plus(IGDPlus, n_evals, F, hist_F)
 ##
 # min_values, max_values = get_min_max_objectives(F1)
-# # filename = "PSEUDO_WEIGHTS_OUT.csv"
+# filename = "PSEUDO_WEIGHTS_OUT.csv"
 # RES_EVA, OUTFLOW, GEN_EN_GWH, IRG_WATER = get_results_from_pseudo_weights(X1, F1)
-#
+
 # get_balanced_energy_production
-# SCE_BALANCED_GEN_ENR_GWH = get_balanced_energy_production(X1, F1)
-# SCE_MAXENERG_GEN_ENR_GWH = get_maxenrgy_energy_production(X1, F1)
-# titles = get_data_string("CH_NAMES")
-# months = get_data_string("CH_MONTHS")
+SCE_BALANCED_GEN_ENR_GWH = get_balanced_energy_production(X1, F1)
+SCE_MAXENERG_GEN_ENR_GWH = get_maxenrgy_energy_production(X1, F1)
+titles = get_data_string("CH_NAMES")
+months = get_data_string("CH_MONTHS")
 # gemplot_generated_energy(SCE_BALANCED_GEN_ENR_GWH, OBS_EN_GWH, OBS_EN_FIRM_GWH, titles, months)
 
 ## get_compared_energy_production
@@ -189,42 +194,73 @@ for weights, label, color in weight_sets:
 
 # Get the other data you need for plotting
 titles = get_data_string("CH_NAMES")
-months = get_data_string("CH_MONTHS")
+
+CH_NAMES_TURKISH2 = [
+    "Yukarı Sakarya Alt Havzası",
+    "Porsuk Alt Havzası",
+    "Ankara Alt Havzası",
+    "Gürsöğüt Barajı",
+    "Kargı Barajı",
+    "Kirmir Alt Havzası",
+    "Sarıyar Barajı",
+    "Gökçekaya Barajı",
+    "Yenice Barajı",
+    "Orta Sakarya Alt Havzası",
+    "Göksu Alt Havzası",
+    "Orta Sakarya Pamukova",
+    "Aşağı Sakarya Alt Havzası",
+    "Toplam"
+]
+#
+# months = get_data_string("CH_MONTHS")
 #
 # gemplot_generated_energy_obs_line(SCE_BALANCED_GEN_ENR_GWH, OBS_EN_GWH, OBS_EN_FIRM_GWH, titles, months)
 
 # gemplot_generated_energy_scenarios_line(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH, titles, months)
+# gemplot_generated_energy_scenarios_line_turkish(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH, CH_NAMES_TURKISH2, months)
+# gemplot_generated_energy_scenarios_single_plots_turkish(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH, CH_NAMES_TURKISH2, months)
+
 # gemplot_generated_energy_scenarios(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH, titles, months)
+
 # plot_total_energy(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH, months)
+# plot_total_energy_turkish(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH, months)
+
 # # plot_yearly_total_energy_with_observation(scenarios, OBS_EN_GWH, OBS_EN_FIRM_GWH)
 # # plot_yearly_total_energy_without_observation(scenarios)
+# plot_yearly_total_energy_without_observation_turkish(scenarios)
 
-# ## line_gemplot_env_management_flow
-# SCE_BALANCED_ECO_A = get_balanced_ecology(XA, FA)
-# SCE_BALANCED_ECO_B = get_balanced_ecology(X1, F1)
-# SCE_BALANCED_ECO_C = get_balanced_ecology(XC, FC)
-# SCE_BALANCED_ECO_D = get_balanced_ecology(XD, FD)
-# SCE_BALANCED_ECO_E = get_balanced_ecology(XE, FE)
-# SCE_BALANCED_ECO_F = get_balanced_ecology(XF, FF)
-# titles = get_data_string("CH_NAMES")[:-1]
-# months = get_data_string("CH_MONTHS")
-# NAME_LIST = np.array(CH_NAMES)
-# I = [node - 1 for node in IRG_NODES]
-# # Example usage
-# SIM_OUTPUT_LIST = [SCE_BALANCED_ECO_A[I], SCE_BALANCED_ECO_B[I], SCE_BALANCED_ECO_C[I],
-#                    SCE_BALANCED_ECO_D[I], SCE_BALANCED_ECO_E[I], SCE_BALANCED_ECO_F[I]]
-# selected_node_index = 7
+## line_gemplot_env_management_flow
+SCE_BALANCED_ECO_A = get_balanced_ecology(XA, FA)
+SCE_BALANCED_ECO_B = get_balanced_ecology(X1, F1)
+SCE_BALANCED_ECO_C = get_balanced_ecology(XC, FC)
+SCE_BALANCED_ECO_D = get_balanced_ecology(XD, FD)
+SCE_BALANCED_ECO_E = get_balanced_ecology(XE, FE)
+SCE_BALANCED_ECO_F = get_balanced_ecology(XF, FF)
+titles = get_data_string("CH_NAMES")[:-1]
+months = get_data_string("CH_MONTHS")
+NAME_LIST = np.array(CH_NAMES_TURKISH2)
+I = [node - 1 for node in IRG_NODES]
+# Example usage
+SIM_OUTPUT_LIST = [SCE_BALANCED_ECO_A[I], SCE_BALANCED_ECO_B[I], SCE_BALANCED_ECO_C[I],
+                   SCE_BALANCED_ECO_D[I], SCE_BALANCED_ECO_E[I], SCE_BALANCED_ECO_F[I]]
+selected_node_index = 4
 
 
 # IRG_NODES = [10, 11, 12, 13]  # Adjust indices based on IRG_NODES [1, 2, 3, 6]
+
 # line_gemplot_env_management_flow_single(SIM_OUTPUT_LIST, OBS_OUTFLOW[I], NAME_LIST[I], selected_node_index)
+line_gemplot_env_management_flow_single_turkish(SIM_OUTPUT_LIST, OBS_OUTFLOW[I], NAME_LIST[I], selected_node_index)
+
 # line_gemplot_env_management_flow(SIM_OUTPUT_LIST, OBS_OUTFLOW[I], NAME_LIST[I])
+# line_gemplot_env_management_flow_turkish(SIM_OUTPUT_LIST, OBS_OUTFLOW[I], NAME_LIST[I])
 
 # best_results = analyze_pseudo_weights_worst_best(X1, F1)  # Get the best_results list
 
 # filename = "EXP_PSEWEI_SCE_NSG3.csv"
-best_results = analyze_pseudo_weights(X2, F2)  # Get the best_results list
+# best_results = analyze_pseudo_weights(X2, F2)  # Get the best_results list 3D PARETO REGARENK
+# best_results = analyze_pseudo_weights_coordinate_plot(X2, F2)  # Get the best_results list  pARETO REGARENK
 
+# analyze_pseudo_weights_animated(X1, F1, output_gif_name="pseudo_weights_analysis_animated_x1.gif", num_frames=120, rotation_speed=2)
 # ##
 # import pandas as pd
 # import seaborn as sns
@@ -307,7 +343,7 @@ best_results = analyze_pseudo_weights(X2, F2)  # Get the best_results list
 
 ##
 
-F1_name="NSGA-II"
-F2_name="NSGA-III"
-
-plot_igdplus_compare_inputigdplus_range(n_evals, F1_name, F2_name, normalize=False)
+# F1_name="NSGA-II"
+# F2_name="NSGA-III"
+#
+# plot_igdplus_compare_inputigdplus_range(n_evals, F1_name, F2_name, normalize=False)

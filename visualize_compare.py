@@ -49,12 +49,19 @@ indicators = ['HV', 'UPM', 'SPM', 'NDSGR', 'MCT']
 # Indicator types (whether each indicator should be maximized or minimized)
 indicator_types = ['maximize', 'minimize', 'maximize', 'maximize', 'minimize']
 
-# Example usage with your data
-# compare_models_polar(data, indicators, indicator_types)
+# Call the function to create the GIF
+# plot_3d_pareto_compare_animated(
+#     RES_F1,
+#     RES_F2,
+#     color_1_hues,
+#     color_2_hues,
+#     output_gif_name="3d_pareto_comparison_animation.gif",
+#     num_frames=120, # More frames for smoother animation
+#     rotation_speed=2) # Adjust rotation speed
 
-# --- Plot the Pareto fronts in separate plots ---
-plot_3d_pareto_compare(RES_F1, RES_F2, color_1_hues, color_2_hues)
+# plot_3d_pareto_compare(RES_F1, RES_F2, color_1_hues, color_2_hues)
+# plot_3d_pareto_compare_normalize(RES_F1, RES_F2, color_1_hues, color_2_hues)
 # plot_2d_pareto_compare(RES_F1, RES_F2, color_1_hues, color_2_hues)
-# parallel_coordinates_plot(RES_F1, RES_F2, color_1_hues=color_1_hues, color_2_hues=color_2_hues)
+parallel_coordinates_plot(RES_F1, RES_F2, color_1_hues=color_1_hues, color_2_hues=color_2_hues)
 # parallel_coordinates_plot(RES_F1, RES_F2, color_1_hues=['#0480B6', '#0D95D0', '#58A5D7'],
 #                              color_2_hues=['#D22946', '#E72F52', '#EB636A'])
