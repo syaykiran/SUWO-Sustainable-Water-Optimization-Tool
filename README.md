@@ -35,6 +35,10 @@ Install the required packages:
 2.  Run the model: `python main.py` *(or the appropriate execution script)*
 3.  Analyse the results using the analysis and visualisation tools.
 
+## Note
+
+These codes still require further organisation and refinement. I have not yet uploaded the more advanced version, as it is currently in the testing phase. However, due to a busy period and requests from those who wish to examine the tool for their own studies, I wanted to share it in its current state. I hope it proves useful. Thank you for your understanding.
+
 ##   Contributing
 
 Contributions are welcome! Please submit pull requests or open issues for bug reports and feature requests.
@@ -53,6 +57,7 @@ Copyright (c) 2025, Salim Yaykiran
 
 ##   Contact
 
-Salim Yaykiran, yaykirans@itu.edu.tr
+Salim Yaykiran, yaykirans@itu.edu.tr, salimyaykiran@gmail.com
 
-Istanbul Technical University, Environmental Engineering Department, 34469 Maslak, Istanbul, Türkiye
+- Istanbul Technical University, Environmental Engineering Department, 34469 Maslak, Istanbul, Türkiye
+- Cleveland House, 54-57 Cleveland Square, London, W2 6DB, UK
